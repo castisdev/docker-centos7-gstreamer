@@ -1,7 +1,7 @@
 # Pull base image
 FROM centos:7
 
-LABEL org.opencontainers.image.source https://github.com/castisdev/docker-centos7
+LABEL org.opencontainers.image.source https://github.com/castisdev/docker-centos7-gstreamer
 
 # set timezone
 RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
