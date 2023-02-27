@@ -99,6 +99,9 @@ RUN /script/install_gstreamer1203.sh
 ADD install_gstreamer1220.sh /script/
 RUN /script/install_gstreamer1220.sh
 
+ADD install_gstreamer1185.sh /script/
+RUN /script/install_gstreamer1185.sh
+
 # ctail
 RUN wget -O - https://raw.githubusercontent.com/castisdev/ctail/master/install.sh --no-check-certificate | bash
 
