@@ -3,7 +3,7 @@ set -x #echo on
 cd ~
 pip3 uninstall -y meson
 pip3 install meson==0.59.0
-yum -y install flex bison libmount-devel; yum -y clean all
+yum -y install flex bison libmount-devel libjpeg-turbo-devel; yum -y clean all
 wget -nv --no-check-certificate --content-disposition https://github.com/GStreamer/gst-build/archive/refs/tags/1.18.5.tar.gz
 tar xf gst-build-1.18.5.tar.gz
 cd gst-build-1.18.5
