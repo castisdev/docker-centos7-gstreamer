@@ -6,8 +6,8 @@ yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel r
 wget -nv https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tar.xz
 tar xf Python-3.11.0.tar.xz
 cd Python-3.11.0
-CFLAGS=$(pkg-config --cflags openssl11)
-LDFLAGS=$(pkg-config --libs openssl11)
+export CFLAGS=$(pkg-config --cflags openssl11)
+export LDFLAGS=$(pkg-config --libs openssl11)
 ./configure --prefix=/usr/local
 make install -j$(nproc)
 cd ~
