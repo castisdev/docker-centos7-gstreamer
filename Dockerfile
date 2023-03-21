@@ -90,6 +90,9 @@ RUN /script/install_golang1193.sh
 ENV HOME /root
 ENV PATH="${PATH}:${HOME}/go/bin:/usr/local/go/bin"
 
+ADD install_gstreamer_prerequisite.sh /script/
+RUN /script/install_gstreamer_prerequisite.sh
+
 ADD install_gstreamer1161.sh /script/
 RUN /script/install_gstreamer1161.sh
 

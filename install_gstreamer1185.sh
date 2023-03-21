@@ -2,14 +2,13 @@
 set -x #echo on
 cd ~
 pip3 uninstall -y meson
-pip3 install meson==0.59.0
-yum -y install flex bison libmount-devel libjpeg-turbo-devel; yum -y clean all
+pip3 install meson==0.59.1
 wget -nv --no-check-certificate --content-disposition https://github.com/GStreamer/gst-build/archive/refs/tags/1.18.5.tar.gz
 tar xf gst-build-1.18.5.tar.gz
 cd gst-build-1.18.5
-export CFLAGS=$(pkg-config --cflags openssl11)
-export LDFLAGS=$(pkg-config --libs openssl11)
-meson -Dlibsoup:c_std=gnu99 -Dgst-plugins-bad:avtp=disabled build --prefix=/usr/local/gstreamer-1.18.5
+CFLAGS=$(pkg-config --cflags openssl11)
+LDFLAGS=$(pkg-config --libs openssl11)
+meson setup -Dlibsoup:c_std=gnu99 -Dgst-plugins-bad:avtp=disabled build --prefix=/usr/local/gstreamer-1.18.5
 meson install -C build
 echo "/usr/local/gstreamer-1.18.5/lib64" >> /etc/ld.so.conf.d/gstreamer-1.18.5.conf
 ldconfig
